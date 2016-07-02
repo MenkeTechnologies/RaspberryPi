@@ -38,7 +38,7 @@ class MyServer(BaseHTTPRequestHandler):
         if command == "on":
             ser.write(b'3')
         else:
-            fade = "fade" + command
+            fade = "fade" + command + "f"
             self.wfile.write(bytes(fade, "utf-8"))
             ser.write(fade.encode())
 
