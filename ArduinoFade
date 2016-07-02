@@ -1,0 +1,40 @@
+#include <Arduino.h>
+
+const int ledPin = 13;
+const int fadeLedPin = 9;
+int PWM = 150;
+String input = "";
+
+
+void setup(){
+  pinMode(fadeLedPin, OUTPUT);
+  Serial.begin(115200);
+  
+}
+
+
+
+void loop(){
+//  Serial.print("pwm value is ");
+//  
+//  Serial.println(PWM);
+//  //
+  
+  if (Serial.available()) {
+    
+    int f = Serial.parseInt();
+    if (f != 0) {
+      PWM = f;
+      
+    } else {
+      
+    }
+  }
+  
+  
+  analogWrite(fadeLedPin, PWM);
+  
+  
+  // blink(Serial.read() - '0'); // convert the character '1'-'9' to decimal 1-9 }
+  
+}
